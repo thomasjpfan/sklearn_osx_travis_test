@@ -1,0 +1,14 @@
+os: osx
+osx_image: xcode9.4
+python:
+  - "3.6"
+  - "3.7"
+  - "3.8"
+  - "3.9"
+
+install:
+  # - pip install scikit_learn-1.0.dev0-cp36-cp36m-macosx_10_9_x86_64.whl
+  - pip install scikit-learn==0.24.0
+
+script:
+  - python -c "import sklearn"
