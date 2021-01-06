@@ -12,12 +12,12 @@ jobs:
         - PYTHON_VERSION=3.8.0
 
 install:
-  # - pip install --pre --upgrade -f artifact scikit-learn
   - pyenv install $PYTHON_VERSION
+  # - pip install --pre --upgrade -f artifact scikit-learn
   # - pip install scikit-learn==0.24.0
 
 script:
-  - pyenv init
+  - eval "$(pyenv init -)"
   - pyenv shell $PYTHON_VERSION
   - which python
   - python --version
