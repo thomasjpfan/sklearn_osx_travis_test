@@ -18,7 +18,7 @@ install:
   - source "$HOME/miniconda/etc/profile.d/conda.sh"
   - conda create -q -n test-env python=$PYTHON_VERSION -y
   - conda activate test-env
-  - pip install --pre -f artifact scikit-learn
+  - pip install --pre -f $PWD/artifact scikit-learn
 
 script:
   - source "$HOME/miniconda/etc/profile.d/conda.sh"
