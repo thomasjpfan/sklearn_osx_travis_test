@@ -3,12 +3,12 @@ osx_image: xcode9.4 # this uses osx 10.13
 
 jobs:
   include:
-    # - env:
-    #     - PYTHON_VERSION=3.6
-    # - env:
-    #     - PYTHON_VERSION=3.7
-    # - env:
-    #     - PYTHON_VERSION=3.8
+    - env:
+        - PYTHON_VERSION=3.6
+    - env:
+        - PYTHON_VERSION=3.7
+    - env:
+        - PYTHON_VERSION=3.8
     - env:
         - PYTHON_VERSION=3.9
 
@@ -18,8 +18,7 @@ install:
   - source "$HOME/miniconda/etc/profile.d/conda.sh"
   - conda create -q -n test-env python=$PYTHON_VERSION -y
   - conda activate test-env
-  # - pip install --pre -f artifact scikit-learn
-  - pip install scikit-learn==0.24.0
+  - pip install --pre -f artifact scikit-learn
 
 script:
   - source "$HOME/miniconda/etc/profile.d/conda.sh"
