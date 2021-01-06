@@ -1,5 +1,5 @@
 os: osx
-osx_image: xcode9.4
+osx_image: xcode9.4 # this uses osx 10.13
 
 jobs:
   include:
@@ -10,7 +10,7 @@ install:
   - wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O miniconda.sh;
   - bash miniconda.sh -b -p $HOME/miniconda
   - source "$HOME/miniconda/etc/profile.d/conda.sh"
-  - conda create -q -n test-env python=$PYTHON_VERSION
+  - conda create -q -n test-env python=$PYTHON_VERSION -y
 
 script:
   - which python
