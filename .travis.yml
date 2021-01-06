@@ -1,15 +1,21 @@
 os: osx
 osx_image: xcode9.4
 language: python
-python:
-  - "3.6"
-  - "3.7"
-  - "3.8"
-  - "3.9"
+
+addons:
+  homebrew:
+    packages:
+      - pyenv
+
+before_install:
+  - echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bash_profile
 
 install:
   # - pip install --pre --upgrade -f artifact scikit-learn
-  - pip install scikit-learn==0.24.0
+  - pyenv install 3.8
+  # - pip install scikit-learn==0.24.0
 
 script:
+  - pyenv shell 3.8
+  - which python
   - python -c "import sklearn"
