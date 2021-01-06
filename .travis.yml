@@ -1,18 +1,22 @@
 os: osx
 osx_image: xcode9.4
-language: python
 
 addons:
   homebrew:
     packages:
       - pyenv
 
+jobs:
+  include:
+    - env:
+        - PYTHON_VERSION=3.8
+
 before_install:
   - echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bash_profile
 
 install:
   # - pip install --pre --upgrade -f artifact scikit-learn
-  - pyenv install 3.8
+  - pyenv install $PYTHON_VERSION
   # - pip install scikit-learn==0.24.0
 
 script:
