@@ -9,7 +9,7 @@ addons:
 jobs:
   include:
     - env:
-        - PYTHON_VERSION=3.8
+        - PYTHON_VERSION=3.8.0
 
 before_install:
   - echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bash_profile
@@ -20,6 +20,7 @@ install:
   # - pip install scikit-learn==0.24.0
 
 script:
-  - pyenv shell 3.8
+  - pyenv shell $PYTHON_VERSION
   - which python
-  - python -c "import sklearn"
+  - python --version
+  # - python -c "import sklearn"
